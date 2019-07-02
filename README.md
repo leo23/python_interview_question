@@ -791,6 +791,28 @@ target = 9
 nums = solution.twoSum(list,target)
 print(nums)
 ```
+上面的办法好，使用了list的内置函数。
+这里再给一个笨办法
+```python
+def find_index(input_list, target_num):
+    index1 = -1
+    index2 = -1
+    size = len(input_list)
+    if size < 2:
+        print "input list should have 2 item at least!"
+        exit(-1)
+    else:
+        for i in range(0, size):
+            for j in range(i, size):
+                if input_list[i] + input_list[j] == target_num:
+                    return (i, j)
+    exit(-2)
+
+i, j = find_index([2,7,11,15], 9)
+assert(i == 0)
+assert(j == 1)
+```
+
 给列表中的字典排序：假设有如下list对象，alist=[{"name":"a","age":20},{"name":"b","age":30},{"name":"c","age":25}],将alist中的元素按照age从大到小排序 alist=[{"name":"a","age":20},{"name":"b","age":30},{"name":"c","age":25}]
 ```python
 alist_sort = sorted(alist,key=lambda e: e.__getitem__('age'),reverse=True)
