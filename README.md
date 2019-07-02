@@ -622,7 +622,7 @@ print(a)
 
 **下面示例是用来解释，双引号不需要考虑:**
 
-(0)输入: "A quick brown for jumps over the lazy dog"
+(0)输入: "A quick brown fox jumps over the lazy dog"
 
 返回： ""
 
@@ -640,12 +640,10 @@ print(a)
 
 ```python
 def get_missing_letter(a):
-    s1 = set("abcdefghijklmnopqrstuvwxyz")
-    s2 = set(a)
+    s1 = set("A QUICK BROWN FOX JUMPS OVER THE LAZY DOG".lower())
+    s2 = set(a.lower())
     ret = "".join(sorted(s1-s2))
-    return ret
-    
-print(get_missing_letter("python"))
+    return ret.strip()
 ```
 
 ### 23.可变类型和不可变类型
