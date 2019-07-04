@@ -987,6 +987,21 @@ def func1(l):
 # 方法二
 def func2(l):
     print("".join(sorted(l, key=lambda x: int(x) % 2 == 0 and 20 - int(x) or int(x))))
+    
+# 方法三
+def sort_string(input_string):
+    odd_list = []
+    even_list = []
+    for i in input_string:
+        i = (int)(i)
+        if i % 2 == 1:
+            odd_list.append(str(i))
+        else:
+            even_list.append(str(i))
+    out_string = "".join(sorted(odd_list)) + "".join(sorted(even_list, reverse=True))
+    return out_string
+
+assert('1355798642' == sort_string('1982376455'))
 ```
 ### 38.写一个函数找出一个整数数组中，第二大的数
 ```python
