@@ -917,6 +917,25 @@ print("%s是 %s年的第%s天。"%(targetDay,y,dayCount.days))
 ```
 ### 36.两个有序列表，l1,l2，对这两个列表进行合并不可使用extend
 ```python
+import os
+import sys
+
+l1 = [123,425,66,7522542]
+l2 = [234,452,124,52,1,4215,43210]
+
+def merge_list(l1, l2):
+    tmplist = []
+    for i in l1:
+        tmplist.append(i)
+    for i in l2:
+        tmplist.append(i)
+    return sorted(tmplist)
+
+print merge_list(l1, l2)
+
+l1 = [123,425,66,7522542]
+l2 = [234,452,124,52,1,4215,43210]
+
 def loop_merge_sort(l1,l2):
     tmp = []
     while len(l1)>0 and len(l2)>0:
@@ -926,7 +945,31 @@ def loop_merge_sort(l1,l2):
         else:
             tmp.append(l2[0])
             del l2[0]
-        
+    return tmp
+print loop_merge_sort(l1, l2)
+
+
+l1 = [123,425,66,7522542]
+l2 = [234,452,124,52,1,4215,43210]
+def merge_list2(l1, l2):
+    tmplist = []
+    while len(l1) > 0 or len(l2) > 0:
+        if len(l1) > 0 and len(l2) > 0:
+            if l1[0] < l2[0]:
+                tmplist.append(l1[0])
+                del l1[0]
+            else:
+                tmplist.append(l2[0])
+                del l2[0]
+        elif len(l1) == 0:
+            tmplist.append(l2[0])
+            del l2[0]
+        elif len(l2) == 0:
+            tmplist.append(l1[0])
+            del l1[0]
+    return tmplist
+
+print merge_list2(l1, l2)
 ```
 ### 37.给定一个任意长度数组，实现一个函数
 让所有奇数都在偶数前面，而且奇数升序排列，偶数降序排序，如字符串'1982376455',变成'1355798642'
