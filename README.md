@@ -1034,10 +1034,17 @@ def find_second_large_num(num_list):
     num = reduce(lambda ot, x: ot[1] < x and (ot[1], x) or ot[0] < x and (x, ot[1]) or ot, num_list, (0, 0))[0]
     print("方法三\nSecond_large_num is :", num)
     
+def find_second_num(input_list):
+    if len(input_list) < 2:
+        print "ERROR! there should be more than 2 num in list, but NOT! your input is %s" % input_list
+    else:
+        return sorted(input_list, reverse=True)[1]
     
 if __name__ == '__main___':
     num_list = [34, 11, 23, 56, 78, 0, 9, 12, 3, 7, 5]
     find_second_large_num(num_list)
+    input_list = [1,2, 3,4,5,6,7,8,9,10]
+    assert(9 == find_second_num(input_list))
 ```
 ### 39.阅读一下代码他们的输出结果是什么？
 ```python
