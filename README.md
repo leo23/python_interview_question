@@ -1434,6 +1434,7 @@ print("----end----")
 
 RuntimeError： Queue objects should only be shared between processs through inheritance
 ```python
+#coding=utf-8
 from multiprocessing import Manager,Pool
 import os,time,random
 def reader(q):
@@ -1443,13 +1444,13 @@ def reader(q):
 
 def writer(q):
     print("writer 启动（%s),父进程为(%s)"%(os.getpid(),os.getpid()))
-    for i ini "itcast":
+    for i in "itcast":
         q.put(i)
 if __name__ == "__main__":
     print("(%s)start"%os.getpid())
     q = Manager().Queue()#使用Manager中的Queue
     po = Pool()
-    po.apply_async(wrtier,(q,))
+    po.apply_async(writer,(q,))
     time.sleep(1)
     po.apply_async(reader,(q,))
     po.close()
