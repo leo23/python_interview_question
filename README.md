@@ -1327,7 +1327,7 @@ args=(tuple,)kwargs={key:value}给任务函数传递的参数
 给子进程指定函数传递参数Demo
 ```python
 import os
-from mulitprocessing import Process
+from multiprocessing import Process
 import time
 
 def pro_func(name,age,**kwargs):
