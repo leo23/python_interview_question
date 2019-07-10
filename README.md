@@ -1418,7 +1418,7 @@ def worker(msg):
     # random.random()随机生成0-1之间的浮点数
     time.sleep(random.random()*2)
     t_stop = time.time()
-    print(msg,"执行完毕，耗时%0.2f”%（t_stop-t_start))
+    print(msg,"执行完毕，耗时%0.2f" % (t_stop - t_start))
 
 po = Pool(3)#定义一个进程池，最大进程数3
 for i in range(0,10):
