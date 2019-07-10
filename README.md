@@ -1260,7 +1260,9 @@ def timeit(func):
     return wrapper
 @timeit
 def foo():
-    print('in foo()'foo())
+    print('in foo()')
+    
+foo()
 ```
 ### 84.解释以下什么是闭包？
 在函数内部再定义一个函数，并且这个函数用到了外边函数的变量，那么将这个函数以及用到的一些变量称之为闭包。
