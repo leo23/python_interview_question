@@ -2433,11 +2433,41 @@ print bubble_sort(input_list)
 
 然后以当前中轴元素的位置为界，将左半部分子数组和右半部分子数组看成两个新的数组，重复上述操作，直到子数组的元素个数小于等于1（因为一个元素的数组必定是有序的）。
 
+```python
+def quick_sort(array, l, r):
+    if l < r:
+        q = partition(array, l, r)
+        quick_sort(array, l, q - 1)
+        quick_sort(array, q + 1, r)
+
+def partition(array, l, r):
+    x = array[r]
+    i = l - 1
+    for j in range(l, r):
+        if array[j] <= x:
+            i += 1
+            array[i], array[j] = array[j], array[i]
+    array[i + 1], array[r] = array[r], array[i+1]
+    return i + 1
+```
 
 ### 230.如何判断单向链表中是否有环？
+双指针，一快一慢，当两个指针的地址相等的时候，就证明有环。
+当直到遍历完毕，还无相等地址的时候，就证明无环。
+
 ### 231.你知道哪些排序算法（一般是通过问题考算法）
+八大排序算法
+
 ### 232.斐波那契数列
+斐波那契数列（Fibonacci sequence），又称黄金分割数列、因数学家列昂纳多·斐波那契（Leonardoda Fibonacci）以兔子繁殖为例子而引入，故又称为“兔子数列”，指的是这样一个数列：1、1、2、3、5、8、13、21、34、……在数学上，斐波纳契数列以如下被以递推的方法定义：F(1)=1，F(2)=1, F(n)=F(n-1)+F(n-2)（n>=3，n∈N*）
+
+def Fibonacci(n):
+    if 0 == n or 1 == n:
+        return n
+    return Fibonacci(n-1) + Fibonacci(n-2)
+
 ### 233.如何翻转一个单链表？
+
 ### 234.青蛙跳台阶问题
 ### 235.两数之和 Two Sum
 ### 236.搜索旋转排序数组 Search in Rotated Sorted Array
